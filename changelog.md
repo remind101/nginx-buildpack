@@ -1,3 +1,12 @@
+## v0.5
+
+2013-10-29
+
+* Add SSL
+* Add gzip-static
+* Remove app-server launch
+* Replace vulcan with heroku run
+
 ## v0.4
 
 2012-05-13
