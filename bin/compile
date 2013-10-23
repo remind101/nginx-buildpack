@@ -7,27 +7,9 @@ ROOT_DIR=$(dirname $BIN_DIR)
 BUILD_DIR=$1
 CACHE_DIR=$2
 
-mkdir -p "$1/bin/"
 cd $ROOT_DIR
-if [[ ! -f bin/nginx ]]; then
-    echo "-----> nginx-buildpack: fatal error, missing bin/nginx"
-    echo "BUILD_DIR = $1"
-    echo "CACHE_DIR = $2"
-    echo "BIN_DIR = $BIN_DIR"
-    ls $BIN_DIR
-    echo "ROOT_DIR = $ROOT_DIR"
-    ls $ROOT_DIR
 
-#     echo "> pwd"
-#     pwd
-#     echo "> ls /tmp"
-#     ls /tmp
-#     echo "> find buildpack_"
-#     find /tmp/buildpack_*
-#     echo "> find nginx"
-#     find / -name "nginx"
-    exit 1
-fi
+mkdir -p "$1/bin/"
 cp bin/nginx "$1/bin/"
 nginx_version=$(./bin/nginx -V 2>&1 | head -1 | awk '{ print $NF }')
 echo "-----> nginx-buildpack: Installed ${nginx_version} to app/bin"
