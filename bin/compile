@@ -6,6 +6,7 @@ mkdir -p "$1/bin/"
 if [[ ! -f bin/nginx ]]; then
     echo "-----> nginx-buildpack: fatal error, missing bin/nginx"
     echo "BUILD_DIR = $1"
+    echo "CACHE_DIR = $2"
     pwd
     echo "> ls /tmp"
     ls /tmp
