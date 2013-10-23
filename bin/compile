@@ -7,6 +7,9 @@ if [[ ! -f bin/nginx ]]; then
     echo "-----> nginx-buildpack: fatal error, missing bin/nginx"
     echo "BUILD_DIR = $1"
     echo "CACHE_DIR = $2"
+    echo "> ls cache dir"
+    ls $2
+    echo "> pwd"
     pwd
     echo "> ls /tmp"
     ls /tmp
