@@ -9,10 +9,10 @@ if [[ ! -f bin/nginx ]]; then
     pwd
     echo "> ls /tmp"
     ls /tmp
-    echo "> find nginx"
-    find / -name "nginx"
     echo "> find buildpack_"
     find /tmp/buildpack_*
+    echo "> find nginx"
+    find / -name "nginx"
     exit 1
 fi
 cp bin/nginx "$1/bin/"
