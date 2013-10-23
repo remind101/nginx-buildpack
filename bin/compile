@@ -7,8 +7,11 @@ if [[ ! -f bin/nginx ]]; then
     echo "-----> nginx-buildpack: fatal error, missing bin/nginx"
     echo "BUILD_DIR = $1"
     pwd
+    echo "> ls /tmp"
     ls /tmp
+    echo "> find nginx"
     find / -name "nginx"
+    echo "> find buildpack_"
     find /tmp/buildpack_*
     exit 1
 fi
