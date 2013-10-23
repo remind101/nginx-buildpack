@@ -8,12 +8,15 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 mkdir -p "$1/bin/"
+cd $ROOT_DIR
 if [[ ! -f bin/nginx ]]; then
     echo "-----> nginx-buildpack: fatal error, missing bin/nginx"
     echo "BUILD_DIR = $1"
     echo "CACHE_DIR = $2"
     echo "BIN_DIR = $BIN_DIR"
+    ls $BIN_DIR
     echo "ROOT_DIR = $ROOT_DIR"
+    ls $ROOT_DIR
 
 #     echo "> pwd"
 #     pwd
