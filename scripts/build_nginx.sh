@@ -18,7 +18,7 @@ cd nginx-${NGINX_VERSION}
 echo "Downloading $pcre_tarball_url"
 curl $pcre_tarball_url | tar xjf -
 
-./configure --with-http_ssl_module --with-pcre=pcre-${PCRE_VERSION} --prefix=$HOME && make install
+./configure --with-http_ssl_module --with-http_gzip_static_module --with-pcre=pcre-${PCRE_VERSION} --prefix=$HOME && make install
 
 cd $HOME/sbin
 
