@@ -18,14 +18,18 @@ done
 
 #Initialize log directory.
 mkdir -p logs/nginx
-touch logs/nginx/access.log logs/nginx/error.log
+mkfifo logs/nginx/access.log logs/nginx/error.log
 echo 'buildpack=nginx at=logs-initialized'
 
 #Start log redirection.
 (
-	#Redirect NGINX logs to stdout.
-	tail -qF -n 0 logs/nginx/*.log
-	echo 'logs' >$psmgr
+	cat logs/nginx/access.log
+	echo 'access.log' >$psmgr
+) &
+(
+	# lets hope the lines don't cut each other off
+	cat logs/nginx/error.log
+	echo 'error.log' >$psmgr
 ) &
 
 #Start NGINX
