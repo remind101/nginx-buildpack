@@ -40,8 +40,8 @@ cd $BUILD_DIR
 
 echo "Building nginx"
 ./configure \
-  --with-cc-opt="-I ./include" \
-  --with-ld-opt="-L ./lib" \
+  --with-cc-opt="-I ./include -static" \
+  --with-ld-opt="-L ./lib -static" \
   --with-http_geoip_module \
   --with-http_realip_module \
   --with-http_ssl_module \
